@@ -1,30 +1,52 @@
 body {
     font-family: 'Courier New', Courier, monospace;
-
     background-color: grey;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .fridge-display {
-    width: 800px;
-    height: 500px;
+    display: flex;
+    width: 900px;
+    height: 600px;
     border: 2px solid #000;
     background-color: #fff;
+    padding: 20px;
+    position: relative;
+}
+
+.side-panel {
+    width: 200px;
+    margin-right: 10px;
+}
+
+.main-panel {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    justify-content: space-between;
+    position: relative;
+    margin-right: 200px;
 }
+
 .clock {
     font-size: 24px;
     margin-bottom: 10px;
 }
+
+.temperature-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .temperature {
     font-size: 24px;
-    margin-top: 5px;
+    margin-right: 10px;
 }
+
 .on-off {
     width: 100px;
     height: 40px;
@@ -36,30 +58,38 @@ body {
 .on-off:hover {
     background-color: rgb(70, 70, 70);
 }
+
 .button-panel {
     display: flex;
     gap: 10px;
 }
-.buttons button {
-    padding: 10px 20px;
-    font-size: 14px;
-}
+
 .image-display {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 20px;
 }
+
 #image {
     width: 300px;
     height: auto;
     display: none;
 }
+
 #image.fridge {
     width: 150px;
 }
 
-header {
-    text-align: center;
+.timer-section, .shopping-list {
+    padding: 10px;
     margin-bottom: 20px;
+}
+
+.music-player {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: none;
+    padding: 5px;
 }
