@@ -1,1 +1,139 @@
-Hello world from Jackson O'Brien
+<!doctype html>
+<html>
+    <head>
+        <title>Jackson O'Brien's Repository</title>
+        <style>
+            body {
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                background: url('indexResources/BackgroundImage.jpg');
+                color: white;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+
+            header {
+                background-color: rgba(0, 0, 0, 0.5);
+                padding: 10px;
+                text-align: center;
+                width: 100%;
+            }
+
+            #profile-picture {
+                display: flex;
+                justify-content: center;
+                margin: 20px 0;
+            }
+
+            #profile-picture img {
+                width: 250px;
+                height: 250px;
+                border-radius: 50%;
+            }
+
+            #mainDiv {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .section {
+                background-color: rgba(0, 0, 0, 0.6);
+                padding: 20px;
+                border-radius: 10px;
+                width: 50%;
+                margin-bottom: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .section p {
+                text-align: center;
+                line-height: 1.6;
+                margin: 0;
+            }
+
+            #files ul {
+                margin: 0;
+                padding: 0;
+                text-align: left;
+            }
+            
+            #files a:hover {
+                text-decoration: underline;
+                color: #6d3faa
+            }
+
+            footer {
+                background-color: rgba(0, 0, 0, 0.5);
+                padding: 10px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body onload="Filelist()">
+        <header>
+            <h1>Jackson O'Brien's Repository for SD330</h1>
+        </header>
+
+        <div id="profile-picture">
+            <img src="indexResources/ProfilePicture.jpg">
+        </div>
+
+        <div id="mainDiv">
+            <div class="section">
+                <h2>Description</h2>
+                <p>
+                    This repository contains files and resources used while taking the System Design 330 course at Marist College with Professor Tokash. It contains many 
+                    examples of HTML, JS, and CSS. The files available below are previously completed projects for display. The course mainly focused on web building and 
+                    how to properly design systems and web pages to make them effective. This course taught me a lot about how to think like a user and how to optimize the 
+                    user experience.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>Available Files</h2>
+                <p id="files">
+            </div>
+        </div>
+
+        <footer>
+            <p><small>Created by Jackson O'Brien | 17 November 2024</small></p>
+        </footer>
+
+        <script>
+            function Filelist() {
+                var htmlString = "<ul>";
+                    // this creates JS object 'data' with a list of files  
+        // change "aptokash/SD330" to your github id and repository name
+                (async () => {
+                    const response = await fetch("https://api.github.com/repos/JacksonObrienMarist/SD330/contents/");
+                    const data = await response.json();
+                    
+                    // loop through the list of files, set "file" to each file name
+                    for (let file of data) {
+                        if (file.type === "file") {
+                            let fname = file.name;
+                            let fpath = "https://JacksonObrienMarist.github.io/SD330/" + fname;
+                            let nameOfSystem = "";
+
+                            if (fname === "fridge.html") {
+                                nameOfSystem = "Fridge Display System: ";
+                            } else if (fname === "index.html") {
+                                nameOfSystem = "Index Page: ";
+                            }
+
+                            htmlString += `<li>${nameOfSystem}<a href="${fpath}" >${fname}</a></li>`;
+                        }
+                    }
+                    document.getElementById("files").innerHTML = htmlString;
+                })();
+            }
+        </script>
+    </body>
+</html>
