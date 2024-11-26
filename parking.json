@@ -1,0 +1,144 @@
+{
+    "parkingLots": {
+        "mcCann": {
+            "name": "McCann Parking Lot",
+            "mapJpg": "mapMcCann.jpg",
+            "numOfSpaces": 300,
+            "comments": "Biggest lot, handles gym and sporting events mostly",
+            "eletricCharging": false,
+            "lighting": "Well-Lit",
+            "hoursOfOperation": "6AM-2AM",
+            "spaces": [
+                {
+                    "sid": 1,
+                    "type": "Handicap",
+                    "status": "Available",
+                    "lastFilledTime": null,
+                    "reservedUntil": null
+                },
+                {
+                    "sid": 2,
+                    "type": "Faculty/Staff",
+                    "status": "Reserved",
+                    "lastFilledTime": "2024-11-24T15:00:00Z",
+                    "reservedUntil": "2024-11-25T08:00:00Z"
+                },
+                {
+                    "sid": 3,
+                    "type": "Student",
+                    "status": "Filled",
+                    "lastFilledTime": "2024-11-25T07:30:00Z",
+                    "reservedUntil": null
+                },
+                {
+                    "sid": 4,
+                    "type": "General",
+                    "status": "Available",
+                    "lastFilledTime": null,
+                    "reservedUntil": null
+                },
+                {
+                    "sid": 5,
+                    "type": "Faculty/Staff",
+                    "status": "Filled",
+                    "lastFilledTime": "2024-11-25T06:00:00Z",
+                    "reservedUntil": null
+                },
+                {
+                    "sid": 6,
+                    "type": "Handicap",
+                    "status": "Reserved",
+                    "lastFilledTime": "2024-11-24T20:00:00Z",
+                    "reservedUntil": "2024-11-25T10:00:00Z"
+                },
+                {
+                    "sid": 7,
+                    "type": "Student",
+                    "status": "Available",
+                    "lastFilledTime": null,
+                    "reservedUntil": null
+                },
+                {
+                    "sid": 8,
+                    "type": "Handicap",
+                    "status": "Filled",
+                    "lastFilledTime": "2024-11-25T08:15:00Z",
+                    "reservedUntil": null
+                },
+                {
+                    "sid": 9,
+                    "type": "Student",
+                    "status": "Reserved",
+                    "lastFilledTime": "2024-11-24T19:00:00Z",
+                    "reservedUntil": "2024-11-25T09:00:00Z"
+                },
+                {
+                    "sid": 10,
+                    "type": "Faculty/Staff",
+                    "status": "Available",
+                    "lastFilledTime": null,
+                    "reservedUntil": null
+                },
+                {
+                    "sid": 11,
+                    "type": "General",
+                    "status": "Filled",
+                    "lastFilledTime": "2024-11-25T08:45:00Z",
+                    "reservedUntil": null
+                },
+                {
+                    "sid": 12,
+                    "type": "Handicap",
+                    "status": "Available",
+                    "lastFilledTime": null,
+                    "reservedUntil": null
+                }
+            ]
+        },
+        "riverView": {
+            "name": "Riverview Parking Lot",
+            "mapJpg": "mapRiverView.jpg",
+            "numOfSpaces": 100,
+            "comments": "Close lot to river, near Hancock center",
+            "eletricCharging": false,
+            "lighting": "Dim-Lit",
+            "hoursOfOperation": "7AM-11PM"
+        },
+        "fulton51": {
+            "name": "51 Fulton Parking Lot",
+            "mapJpg": "mapFulton51.jpg",
+            "numOfSpaces": 75,
+            "comments": "Furthest off campus academic building",
+            "eletricCharging": true,
+            "lighting": "Dim-Lit",
+            "hoursOfOperation": "7AM-9PM"
+        },
+        "foy": {
+            "name": "Foy Parking Lot",
+            "mapJpg": "mapFoy.jpg",
+            "numOfSpaces": 75,
+            "comments": "Close to residental housing and center of campus, faculty only",
+            "eletricCharging": false,
+            "lighting": "Dim-Lit",
+            "hoursOfOperation": "7AM-2AM"
+        },
+        "donnely": {
+            "name": "Donnely Parking Lot",
+            "mapJpg": "mapDonnely.jpg",
+            "numOfSpaces": 100,
+            "comments": "Faculty only parking lot, half circle parking lot",
+            "eletricCharging": false,
+            "lighting": "Dim-Lit",
+            "hoursOfOperation": "7AM-2AM"
+        },
+        "northEnd": {
+            "name": "North End Parking Lot",
+            "mapJpg": "mapNorthEnd.jpg",
+            "numOfSpaces": 200,
+            "comments": "Congested due to lack of spots for many upper classmen",
+            "eletricCharging": false,
+            "lighting": "Dim-Lit",
+            "hoursOfOperation": "24/7"
+        }
+    }
+}
