@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Marist College Parking App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav>
+            <ul>
+                <li><a href="parking.html">Home</a></li>
+                <li><a href="lots.html">Parking Lots</a></li>
+                <li><a href="error.html">Account</a></li>
+                <li><a href="error.html">Settings</a></li>
+                <li><a href="error.html">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <img src="Marist_Red_Foxes_logo.svg.png" alt="Marist Red Foxes Logo" class="logo">
+        <h1 class="title">CAMPUS PARKING APP</h1>
+        <button class="button" onclick="window.location.href='lots.html'">Find Parking</button>
+        <p class="description">
+            The Marist College Campus Parking App helps you find available parking spaces quickly and efficiently!
+        </p>
+    </div>
+    
+    <div class="dark-mode-toggle">
+        <button class="dark-mode-button" onclick="toggleDarkMode()">Dark Mode</button>
+    </div>
+    
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>

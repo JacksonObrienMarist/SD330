@@ -1,0 +1,243 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #B22222; 
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px 0;
+}
+
+.main-header nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.main-header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.main-header nav ul li a:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.logo {
+    max-width: 600px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.button {
+    background-color: white;
+    color: #B22222;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: white;
+    color: #B22222;
+}
+
+.description {
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.dark-mode-button {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.lots-container, .spaces-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.lot-card, .space-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.lot-card:hover, .space-card:hover {
+    transform: translateY(-5px);
+}
+
+.lot-card h2, .space-card h3 {
+    margin-top: 0;
+    color: white;
+}
+
+.lot-card p, .space-card p {
+    margin: 10px 0;
+}
+
+.lot-card button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: white;
+    color: #B22222;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.lot-card button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+
+
+
+
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+body.dark-mode .lot-card,
+body.dark-mode .space-card {
+    background-color: #2d2d2d;
+}
+
+body.dark-mode .lot-card button {
+    background-color: #B22222;
+    color: white;
+}
+
+body.dark-mode .lot-card button:hover {
+    background-color: #8b1a1a;
+}
+
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+body.dark-mode .main-header {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .main-header nav ul li a {
+    color: #f0f0f0;
+}
+
+body.dark-mode .main-header nav ul li a:hover {
+    color: rgba(240, 240, 240, 0.7);
+}
+
+body.dark-mode .button {
+    background-color: white;
+    color: #B22222;
+}
+
+body.dark-mode .button:hover {
+    background-color: white;
+    color: #B22222;
+}
+
+.dark-mode-button,
+body.dark-mode .dark-mode-button {
+    background-color: transparent;
+    color: white;
+    border-color: white;
+}
+
+.dark-mode-button:hover,
+body.dark-mode .dark-mode-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.lots-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.lot-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+.lot-card h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.lot-card p {
+    margin: 10px 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+body.dark-mode .lot-card {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.lot-card .button {
+    margin-top: 10px;
+    width: 100%;
+}

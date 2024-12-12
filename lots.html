@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Marist College Parking App - Lots</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .lots-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            margin-top: 80px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .lot-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: transform 0.3s ease;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lot-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lot-card h2 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .lot-info {
+            margin: 10px 0;
+            color: rgba(255, 255, 255, 0.9);
+            flex-grow: 1;
+        }
+
+        .find-spaces-btn {
+            background: #fff;
+            color: #B22222;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .find-spaces-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2em;
+            color: white;
+        }
+
+        .error {
+            color: #ff4444;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .dark-mode {
+            background-color: #333;
+        }
+
+        .dark-mode .lot-card {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 1200px) {
+            .lots-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .lots-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav>
+            <ul>
+                <li><a href="parking.html">Home</a></li>
+                <li><a href="lots.html">Parking Lots</a></li>
+                <li><a href="error.html">Account</a></li>
+                <li><a href="error.html">Settings</a></li>
+                <li><a href="error.html">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="title">PARKING LOTS</h1>
+        <div id="lots-container" class="lots-container">
+        </div>
+    </div>
+
+    <div class="dark-mode-toggle">
+        <button class="dark-mode-button" onclick="toggleDarkMode()">Dark Mode</button>
+    </div>
+
+    <script>
+        async function displayLots() {
+            const lotsContainer = document.getElementById('lots-container');
+            lotsContainer.innerHTML = '<div class="loading">Loading parking lots...</div>';
+
+            try {
+                const response = await fetch("https://raw.githubusercontent.com/JacksonObrienMarist/SD330/main/parking.json");
+                const data = await response.json();
+                
+                lotsContainer.innerHTML = '';
+                
+                Object.entries(data.parkingLots).forEach(([id, lot]) => {
+                    const card = document.createElement('div');
+                    card.className = 'lot-card';
+                    
+                    const availableSpaces = lot.spaces ? 
+                        lot.spaces.filter(space => space.status === 'Available').length : 
+                        'N/A';
+
+                    card.innerHTML = `
+                        <h2>${lot.name}</h2>
+                        <div class="lot-info">
+                            <p>Total Spaces: ${lot.numOfSpaces}</p>
+                            <p>Available Spaces: ${availableSpaces}</p>
+                            <p>Hours: ${lot.hoursOfOperation}</p>
+                            <p>Lighting: ${lot.lighting}</p>
+                            ${lot.comments ? `<p>Notes: ${lot.comments}</p>` : ''}
+                            ${lot.eletricCharging ? '<p>Electric Charging Available</p>' : ''}
+                        </div>
+                        ${id === 'mcCann' ? '<button class="find-spaces-btn" onclick="window.location.href=\'spaces.html\'">FIND SPACES</button>' : ''}
+                    `;
+                    
+                    lotsContainer.appendChild(card);
+                });
+            } catch (error) {}
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        document.addEventListener('DOMContentLoaded', displayLots);
+    </script>
+</body>
+</html>
